@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -30,3 +30,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= link_to "投稿一覧画面にもどる", posts_path %>
