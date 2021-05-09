@@ -1,3 +1,26 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-icon {
+  border-radius: 100px;
+}
+
+foot-nav {
+  display:flex;
+  justify-content: center;
+}
+
+.header-menu {
+  color: black;
+}
+
+.main {
+  margin-left: 7%;
+} 
+
+#footer {
+  font-family: sans-serif;
+  font-size: small;
+  margin-left: 40%;
+}

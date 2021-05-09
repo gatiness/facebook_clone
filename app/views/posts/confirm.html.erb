@@ -1,15 +1,15 @@
-<h2>以下の内容で、送信する。</h2>
-
-<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
-  <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-  <%= form.hidden_field :title %>
+<h1>確認画面</h1>
+<br>
+<h3 id="message">以下の内容でツイートする。</h3>
+<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+  <p>User: <%= @post.user.name %></p>
   <%= form.hidden_field :content %>
-  <%= form.hidden_field :image %>
+  <p>Content: <%= @post.content %></p>
   <%= form.hidden_field :image_cache %>
-  <p>タイトル:<%= @post.title %></p>
-  <p>本文:<%= @post.content %></p>
-  <p>画像:<%= @post.image %></p>
-  <%= form.submit  "登録する" %>
-  <%= form.submit "戻る", name: 'back' %>
+  <p>Image: <%= image_tag(@post.image.url) if @post.image && @post.image.url %></p>
+  <%= form.submit "Post" %>
 <% end %>
-
+<%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Back", name: "back" %>
+<% end %>
