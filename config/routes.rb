@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, only: [:new, :create, :show]
   resources :posts
   resources :posts do
     collection do
