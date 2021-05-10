@@ -5,7 +5,7 @@
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% post.errors.full_messages.each do |message| %>
+      <% @post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,26 +13,29 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label :本文 %>
     <%= form.text_field :content %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
+  <div class="field" id= "image">
+    <%= form.label :画像 %>
     <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
-
+  <br>
+  <%= form.submit %>
+  <br>
+  <br>
+  <br>
+  <br>
   <% end %>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  
 
 
 

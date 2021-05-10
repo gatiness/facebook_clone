@@ -1,10 +1,10 @@
-<h1>Home</h1>
+<h5>投稿</h5ß>
 
 <table>
   <% @posts.each do |post| %>
     <tbody>
       <tr>
-        <%# <td><%= post.user.name %></td> %>
+        <td><%= post.user.name %></td>
       </tr>
       <tr>
         <td><%= post.content %></td>
@@ -16,10 +16,10 @@
     <tfooter>
       <tr>
         <td>
-          <%= link_to 'Show', post %>
+          <%= link_to '詳細', post %>
           <% if post.user.id == current_user.id %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '編集', edit_post_path(post) %>
+            <%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
       </tr>
@@ -28,3 +28,7 @@
   <% end %>
 </table>
 <%= link_to '投稿する', new_post_path %>
+<br>
+  <br>
+  <br>
+  <br>

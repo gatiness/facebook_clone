@@ -10,11 +10,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @post = post.new(post_params)
-    else
-      @post = current_user.posts.build
-    end
+    @post = Post.new
   end
 
   def edit
@@ -61,11 +57,11 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def ensure_correct_user
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
     if @post.user_id != current_user.id
       flash[:notice] = "No authority"
       redirect_to posts_url
@@ -73,6 +69,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :image, :image_cache)
+    params.require(:post).permit(:title, :content, :image, :image_cache)
   end
 end

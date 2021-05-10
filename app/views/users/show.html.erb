@@ -3,11 +3,5 @@
 <h1><%= @user.name %></h1>
 <p>email: <%= @user.email %></p>
 
-<p>
-  <%# <strong>Image:</strong> %>
-  <%= image_tag @user.image.url if @user.image? %>
-</p>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to '♡Favorite', favorites_path %> |
-<%= link_to 'Top', posts_path %>
+<%= link_to 'Home', posts_path %>

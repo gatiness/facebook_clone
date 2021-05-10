@@ -1,6 +1,6 @@
 <h1>確認画面</h1>
 <br>
-<h3 id="message">以下の内容でツイートする。</h3>
+<h3 id="message">以下の内容で投稿する。</h3>
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <p>User: <%= @post.user.name %></p>
   <%= form.hidden_field :content %>
@@ -12,4 +12,8 @@
 <%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "Back", name: "back" %>
+  <br>
+  <br>
+  <br>
+  <br>
 <% end %>
